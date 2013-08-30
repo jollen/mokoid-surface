@@ -22,6 +22,7 @@
 #include <utils/MemoryBase.h>
 #include <utils/MemoryHeapBase.h>
 #include <utils/threads.h>
+#include <utils/RefBase.h>
 
 #include <ui/SurfaceComposerClient.h>
 #include <ui/Region.h>
@@ -29,13 +30,14 @@
 
 namespace android {
 
-class MokoidSurface {
+class MokoidSurface  : public virtual RefBase {
 
 public:
-    MokoidSurface();
-    ~MokoidSurface();
+    MokoidSurface() {};
+
+    ~MokoidSurface() {};
     
-    int clientInit(int x, int y, int w, int h, int *stride);
+    int clientInit(int x, int y, int w, int h, int *stride) { return 0; } ;
 
     void lockScreen(void);
     void unlockScreen(void);

@@ -42,12 +42,14 @@ static void draw(char *buf, int w, int h, int stride)
 	}
 }
 
+sp<MokoidSurface> surface;
+
 static void demo(int x, int y, int w, int h)
 {
 	char *buf;
 	int stride;
 
-    MokoidSurface *surface = new MokoidSurface();
+    surface = new MokoidSurface();
 
 	if (!surface->clientInit(x, y, w, h, &stride)) {
 		LOGI("failed to initialize a surface\n");
