@@ -25,6 +25,11 @@ int surfaceflinger_init(int x, int y, int w, int h, int *stride)
 	int depth = 32;
 	int fmt;
 
+    if (depth == 32)
+        fmt = PIXEL_FORMAT_RGBA_8888;
+    else
+        fmt = PIXEL_FORMAT_RGB_565;
+
 	android_client = new SurfaceComposerClient;
 	if (android_client == NULL) {
 		LOGE("failed to create client\n");
