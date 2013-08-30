@@ -8,8 +8,8 @@ extern "C" {
 int surfaceflinger_init(int x, int y, int w, int h, int *stride);
 void surfaceflinger_fini(void);
 
-//char *surfaceflinger_lock(void);
-//void surfaceflinger_unlock(void);
+char *surfaceflinger_lock(void);
+void surfaceflinger_unlock(void);
 
 #ifdef __cplusplus
 }
