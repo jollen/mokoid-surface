@@ -44,7 +44,7 @@ int surfaceflinger_init(int x, int y, int w, int h, int *stride)
 
 	android_client->openTransaction();
 	android_surface->setPosition(x, y);
-	android_surface->setLayer(INT_MAX);
+	android_surface->setLayer(INT_MAX);  // z-index
 	android_client->closeTransaction();
 
 	return 1;
