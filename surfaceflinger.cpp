@@ -14,6 +14,20 @@ using namespace android;
 static sp<SurfaceComposerClient> android_client;
 static sp<Surface> android_surface;
 
+char *surfaceflinger_lock(void)
+{
+	Surface::SurfaceInfo info;
+
+	android_surface->lock(&info);
+
+	return (char *) info.bits;
+}
+
+void surfaceflinger_unlock(void)
+{
+	android_surface->unlockAndPost();
+}
+
 void surfaceflinger_fini(void)
 {
 	android_surface = NULL;
